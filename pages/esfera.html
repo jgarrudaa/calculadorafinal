@@ -71,7 +71,7 @@
             function calcularArea() {
                  raio = parseFloat(document.getElementById("raio").value);
     
-                if(raio<=0 || isNaN(raio)){document.getElementById("resultadoArea").textContent= "Impossivél de realizar"}
+                if(raio<=0 || isNaN(raio)){document.getElementById("resultadoArea").textContent= "Impossível de realizar"}
                 else{areaesfera = 4 * Math.PI * Math.pow(raio, 2) ;}
                
     
@@ -81,12 +81,9 @@
             function calcularVolume() {
                  raio = parseFloat(document.getElementById("raio").value);
     
-                if(raio<=0 || isNaN(raio)){document.getElementById("resultadoVolume").textContent= "Impossivél de realizar"}
+                if(raio<=0 || isNaN(raio)){document.getElementById("resultadoVolume").textContent= "Impossível de realizar"}
                 else{volumeesfe = (4 * Math.PI * Math.pow(raio, 3))/3;}
 
-    
-               
-    
                 document.getElementById("resultadoVolume").textContent = `O volume é: ${volumeesfe.toFixed(2)}cm³`;
             }
         </script>
