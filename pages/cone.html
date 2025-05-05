@@ -74,7 +74,7 @@
                  raio = parseFloat(document.getElementById("raio").value);
                  h = parseFloat(document.getElementById("h").value);
     
-                if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoArea").textContent= "Impossivél de realizar"}
+                if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoArea").textContent= "Impossível de realizar"}
                 else if(isNaN(h)){areaLateral = 2 * Math.PI * raio * 10;
                  areaBase = Math.PI * Math.pow(raio, 2);
                  areaTotal = areaLateral + areaBase;}
@@ -90,7 +90,7 @@
                  raio = parseFloat(document.getElementById("raio").value);
                  h = parseFloat(document.getElementById("h").value);
     
-                if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoVolume").textContent= "Impossivél de realizar"}
+                if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoVolume").textContent= "Impossível de realizar"}
                 else if(isNaN(h)){volume = (Math.PI * Math.pow(raio, 2) * 10)/3;}
                 else{ volume = (Math.PI * Math.pow(raio, 2) * h)/3;}
     
