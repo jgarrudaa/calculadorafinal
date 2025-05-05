@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style2.css"></link>
+    <link rel="icon" href="../assets/img/logo.jpg">
+    <title>Calculadora de Esferas</title>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html"><img src="../assets/img/logo.jpg" alt="logo" class="logo"></a>
+        <div class="cabeca">
+        <h1 class="title">GeoMath</h1>
+        <h2 class="subtitle">Calculadora de Sólidos</h2>
+        </div>
+        
+        <div class="barra">
+
+        </div>
+            <nav class="nav">
+                <a href="/" class="logo"></a>
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="pagina">Início</a></li>
+                    <li><a href="cilindro.html" class="pagina">Cilindro</a></li>
+                    <li><a href="cone.html" class="pagina">Cone</a></li>
+                    <li><a href="esfera.html" class="pagina">Esfera</a></li>
+                    <li><a href="piramide.html" class="pagina">Pirâmide</a></li>
+                    <li><a href="prisma.html" class="pagina">Prisma</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <main>
+
+        <div class="titulo">
+        <h1 class="name">Esfera</h1></div>
+        <div class="box">
+            <img src="../assets/img/solidospage/esfera.png" alt="esfera" class="imagem">
+            <div class="texto">
+                <h2 class="boxtitle">Calculadora de Volume e Área</h2>
+                <div class="dados">
+                        <p class="insiridor">Insira o valor do raio (cm): </p>
+                        <input type="number" id="raio" class="input">
+                        <br>
+                        <br>
+                        
+                        <div class="resultados">
+                            <button onclick="calcularArea()" class="botao">Calcular a área</button>
+                            <div class="resultbox"><p id="resultadoArea" class="insiridor"></p></div>
+                        </div></div>
+                        <br>
+                        <div class="resultados">
+                            <button onclick="calcularVolume()" class="botao">Calcular o volume</button>
+                            <div class="resultbox"><p id="resultadoVolume" class="insiridor"></p></div>
+                        </div></div>
+    
+                    </div>
+    
+                </div>
+            </div>
+    
+        </main>
+    
+        <footer>
+            <footer>
+                <p>Feito por João Guilherme, João Victor e Lucas</p>
+                <a href="quemsomos.html" class="quemsomos">Quem somos nós</a>
+            </footer>
+        </footer>
+        <script>
+            function calcularArea() {
+                 raio = parseFloat(document.getElementById("raio").value);
+    
+                if(raio<=0){document.getElementById("resultadoArea").textContent= "Impossivél de realizar"}
+                else{         areaesfera = 4 * Math.PI * Math.pow(raio, 2) ;}
+               
+    
+                document.getElementById("resultadoArea").textContent = `A área total é: ${areaesfera.toFixed(2)}cm²`;
+            }
+    
+            function calcularVolume() {
+                 raio = parseFloat(document.getElementById("raio").value);
+    
+                if(raio<=0){document.getElementById("resultadoVolume").textContent= "Impossivél de realizar"}
+                else{       volumeesfe = (4 * Math.PI * Math.pow(raio, 3))/3;}
+
+    
+               
+    
+                document.getElementById("resultadoVolume").textContent = `O volume é: ${volumeesfe.toFixed(2)}cm³`;
+            }
+        </script>
+    
+    </body>
+    </html>
