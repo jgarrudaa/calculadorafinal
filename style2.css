@@ -196,6 +196,12 @@ main{
     border-width: 2px;
 }
 
+.aviso{
+    font-size: 15px;
+    color: #000;
+    padding: 5px 0 0 15px;
+}
+
 footer{
     background-color: #111;
     text-align: center;
@@ -216,4 +222,10 @@ color: #fff;
 
 .quemsomos:hover {
 color:  #ff5a00;
+}
+
+.apresentacao{
+    width: 60%;
+    height: 200px;
+    background-color: #15ff00;
 }

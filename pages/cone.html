@@ -44,7 +44,7 @@
                         <br>
                         <p class="insiridor">Insira a altura (cm):</p>
                         <input type="number" id="h" class="input">
-                        <br>
+                        <p class="aviso">*Se a altura não for inserida, será considerada como 10 cm.</p>
                         <br>
                         <div class="resultados">
                             <button onclick="calcularArea()" class="botao">Calcular a área</button>
@@ -74,7 +74,10 @@
                  raio = parseFloat(document.getElementById("raio").value);
                  h = parseFloat(document.getElementById("h").value);
     
-                if(h<=0){document.getElementById("resultadoArea").textContent= "Impossivél de realizar"}
+                if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoArea").textContent= "Impossivél de realizar"}
+                else if(isNaN(h)){areaLateral = 2 * Math.PI * raio * 10;
+                 areaBase = Math.PI * Math.pow(raio, 2);
+                 areaTotal = areaLateral + areaBase;}
                 else{  areaLateral = 2 * Math.PI * raio * h;
                  areaBase = Math.PI * Math.pow(raio, 2);
                  areaTotal = areaLateral + areaBase;}
@@ -87,7 +90,8 @@
                  raio = parseFloat(document.getElementById("raio").value);
                  h = parseFloat(document.getElementById("h").value);
     
-                if(h<=0){document.getElementById("resultadoVolume").textContent= "Impossivél de realizar"}
+                if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoVolume").textContent= "Impossivél de realizar"}
+                else if(isNaN(h)){volume = (Math.PI * Math.pow(raio, 2) * 10)/3;}
                 else{ volume = (Math.PI * Math.pow(raio, 2) * h)/3;}
     
                

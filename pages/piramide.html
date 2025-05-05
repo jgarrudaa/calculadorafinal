@@ -41,8 +41,9 @@
                     <p class="insiridor">Insira o valor do lado da base (cm):</p>
                     <input type="number" id="lado" class="input"><br>
                     <p class="insiridor">Insira a altura da pirâmide (cm):</p>
-                    <input type="number" id="altura" class="input"><br><br>
-
+                    <input type="number" id="altura" class="input">
+                    <p class="aviso">*Se a altura não for inserida, será considerada como 10 cm.</p>
+                    <br>
                     <div class="resultados">
                         <button onclick="calcularArea()" class="botao">Calcular a área</button>
                         <div class="resultbox"><p id="resultadoArea" class="insiridor"></p></div>
@@ -67,16 +68,25 @@
             lado = parseFloat(document.getElementById("lado").value);
             altura = parseFloat(document.getElementById("altura").value);
 
-            if (lado <= 0 || altura <= 0 || isNaN(lado) || isNaN(altura)) {
+            if (lado <= 0 || altura <= 0 || isNaN(lado)) {
                 document.getElementById("resultadoArea").textContent = "Impossível de realizar";
                 return;
             }
+            
+            else if (isNaN(altura)){
+                alturaLateral = Math.sqrt(Math.pow(10, 2) + Math.pow(lado / 2, 2));
 
+                areaBase = Math.pow(lado, 2);
+                areaLateral = 2 * lado * alturaLateral;
+                areaTotal = areaBase + areaLateral;
+            }
+
+            else{
             alturaLateral = Math.sqrt(Math.pow(altura, 2) + Math.pow(lado / 2, 2));
 
             areaBase = Math.pow(lado, 2);
             areaLateral = 2 * lado * alturaLateral;
-            areaTotal = areaBase + areaLateral;
+            areaTotal = areaBase + areaLateral;}
 
             document.getElementById("resultadoArea").textContent = `A área total: ${areaTotal.toFixed(2)} cm²`;
         }
@@ -85,12 +95,17 @@
             lado = parseFloat(document.getElementById("lado").value);
             altura = parseFloat(document.getElementById("altura").value);
 
-            if (lado <= 0 || altura <= 0 || isNaN(lado) || isNaN(altura)) {
+            if (lado <= 0 || altura <= 0 || isNaN(lado)) {
                 document.getElementById("resultadoVolume").textContent = "Impossível de realizar";
                 return;
             }
 
-            volume = (Math.pow(lado, 2) * altura) / 3;
+            else if (isNaN(altura)) {
+                volume = (Math.pow(lado, 2) * 10) / 3;
+            }
+        
+            else{
+            volume = (Math.pow(lado, 2) * altura) / 3;}
 
             document.getElementById("resultadoVolume").textContent = `O volume é: ${volume.toFixed(2)} cm³`;
         }
