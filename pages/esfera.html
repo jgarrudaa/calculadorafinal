@@ -75,7 +75,7 @@
                 else{areaesfera = 4 * Math.PI * Math.pow(raio, 2) ;}
                
     
-                document.getElementById("resultadoArea").textContent = `A área total é: ${areaesfera.toFixed(2)}cm²`;
+                document.getElementById("resultadoArea").textContent = `${areaesfera.toFixed(2)}cm²`;
             }
     
             function calcularVolume() {
@@ -84,7 +84,7 @@
                 if(raio<=0 || isNaN(raio)){document.getElementById("resultadoVolume").textContent= "Impossível de realizar"}
                 else{volumeesfe = (4 * Math.PI * Math.pow(raio, 3))/3;}
 
-                document.getElementById("resultadoVolume").textContent = `O volume é: ${volumeesfe.toFixed(2)}cm³`;
+                document.getElementById("resultadoVolume").textContent = `${volumeesfe.toFixed(2)}cm³`;
             }
         </script>
     

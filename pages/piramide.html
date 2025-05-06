@@ -43,6 +43,9 @@
                     <p class="insiridor">Insira a altura da pirâmide (cm):</p>
                     <input type="number" id="altura" class="input">
                     <p class="aviso">*Se a altura não for inserida, será considerada como 10 cm.</p>
+                    <p class="insiridor">Insira o número de lados da base (inteiros):</p>
+                    <input type="number" id="n_lados" class="input">
+                    <br>
                     <br>
                     <div class="resultados">
                         <button onclick="calcularArea()" class="botao">Calcular a área</button>
@@ -67,47 +70,68 @@
         function calcularArea() {
             lado = parseFloat(document.getElementById("lado").value);
             altura = parseFloat(document.getElementById("altura").value);
+            n_lados = parseFloat(document.getElementById("n_lados").value);
 
-            if (lado <= 0 || altura <= 0 || isNaN(lado)) {
+            if (lado <= 0 || altura <= 0 || n_lados <= 2 || isNaN(lado) || isNaN(n_lados) ) {
                 document.getElementById("resultadoArea").textContent = "Impossível de realizar";
                 return;
             }
             
-            else if (isNaN(altura)){
-                alturaLateral = Math.sqrt(Math.pow(10, 2) + Math.pow(lado / 2, 2));
+            if (isNaN(altura)){
+                altura = 10;
+            }
 
-                areaBase = Math.pow(lado, 2);
+            if (n_lados == 3){
+                alturaLateral = Math.sqrt(Math.pow(altura, 2) + Math.pow(lado / 2, 2));
+
+                areaBase = (Math.pow(lado, 2)*Math.sqrt(3))/4;
                 areaLateral = 2 * lado * alturaLateral;
                 areaTotal = areaBase + areaLateral;
             }
 
-            else{
+            else if (n_lados === 4){
             alturaLateral = Math.sqrt(Math.pow(altura, 2) + Math.pow(lado / 2, 2));
 
             areaBase = Math.pow(lado, 2);
             areaLateral = 2 * lado * alturaLateral;
             areaTotal = areaBase + areaLateral;}
 
-            document.getElementById("resultadoArea").textContent = `A área total: ${areaTotal.toFixed(2)} cm²`;
+            else{
+            alturaLateral = Math.sqrt(Math.pow(altura, 2) + Math.pow(lado / 2, 2));
+
+            areaBase = ((Math.pow(lado, 2)*Math.sqrt(3))/4)*n_lados;
+            areaLateral = 2 * lado * alturaLateral;
+            areaTotal = areaBase + areaLateral;}
+
+            document.getElementById("resultadoArea").textContent = `${areaTotal.toFixed(2)} cm²`;
         }
 
         function calcularVolume() {
             lado = parseFloat(document.getElementById("lado").value);
             altura = parseFloat(document.getElementById("altura").value);
+            n_lados = parseFloat(document.getElementById("n_lados").value);
 
-            if (lado <= 0 || altura <= 0 || isNaN(lado)) {
+            if (lado <= 0 || altura <= 0 || n_lados <= 2 || isNaN(lado) || isNaN(n_lados)) {
                 document.getElementById("resultadoVolume").textContent = "Impossível de realizar";
                 return;
             }
 
-            else if (isNaN(altura)) {
-                volume = (Math.pow(lado, 2) * 10) / 3;
+            if (isNaN(altura)){
+                altura = 10;
+            }
+
+            if (n_lados == 3){
+                volume = (((Math.pow(lado, 2)*Math.sqrt(3))/4) * altura) / 3;
+            }
+
+            else if (n_lados == 4) {
+                volume = (Math.pow(lado, 2) * altura) / 3;
             }
         
             else{
-            volume = (Math.pow(lado, 2) * altura) / 3;}
+            volume = ((((Math.pow(lado, 2)*Math.sqrt(3))/4)*n_lados) * altura) / 3;}
 
-            document.getElementById("resultadoVolume").textContent = `O volume é: ${volume.toFixed(2)} cm³`;
+            document.getElementById("resultadoVolume").textContent = `${volume.toFixed(2)} cm³`;
         }
     </script>
 </body>
