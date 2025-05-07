@@ -100,9 +100,10 @@
                 apotemaBase = lado / (2 * Math.tan(Math.PI / n_lados));
                 apotemaLateral = Math.sqrt(Math.pow(altura, 2) + Math.pow(apotemaBase, 2));
                 
-                areaBase = ((Math.pow(lado, 2)*Math.sqrt(3))/4)*n_lados;
+                areaBase = (n_lados * lado * apotemaBase) / 2;
                 areaLateral = ((lado * apotemaLateral) / 2)*n_lados;
-                areaTotal = areaBase + areaLateral;}
+                areaTotal = areaBase + areaLateral;
+            }
 
             document.getElementById("resultadoArea").textContent = `${areaTotal.toFixed(2)} cm²`;
         }
@@ -130,7 +131,9 @@
             }
         
             else{
-            volume = ((((Math.pow(lado, 2)*Math.sqrt(3))/4)*n_lados) * altura) / 3;}
+                apotemaBase = lado / (2 * Math.tan(Math.PI / n_lados));
+                
+                volume = (((n_lados * lado * apotemaBase) / 2) * altura) / 3;}
 
             document.getElementById("resultadoVolume").textContent = `${volume.toFixed(2)} cm³`;
         }

@@ -95,7 +95,9 @@
             areaTotal = areaBase + areaLateral;}
 
             else{
-            areaBase = (((Math.pow(lado, 2)*Math.sqrt(3))/4)*n_lados)*2;
+            apotemaBase = lado / (2 * Math.tan(Math.PI / n_lados));
+
+            areaBase = ((n_lados * lado * apotemaBase) / 2) * 2;
             areaLateral = n_lados * lado * altura;
 
             areaTotal = areaBase + areaLateral;}
@@ -121,7 +123,10 @@
 
             else if(n_lados == 4){ volume = Math.pow(lado, 2) * altura; }
 
-            else {volume = (((Math.pow(lado, 2)*Math.sqrt(3))/4)*n_lados) * altura;}
+            else {
+                apotemaBase = lado / (2 * Math.tan(Math.PI / n_lados));
+
+                volume = ((n_lados * lado * apotemaBase) / 2) * altura;}
 
             document.getElementById("resultadoVolume").textContent = `${volume.toFixed(2)} cm³`;
         }
