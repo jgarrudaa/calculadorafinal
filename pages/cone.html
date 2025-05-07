@@ -73,12 +73,14 @@
             function calcularArea() {
                  raio = parseFloat(document.getElementById("raio").value);
                  h = parseFloat(document.getElementById("h").value);
-    
+                 
+                if(isNaN(h)){h = 10}
+
+                geratriz = Math.sqrt(Math.pow(raio, 2) + Math.pow(h, 2));
+
                 if(h<=0 || raio<=0 || isNaN(raio)){document.getElementById("resultadoArea").textContent= "Impossível de realizar"}
-                else if(isNaN(h)){areaLateral = 2 * Math.PI * raio * 10;
-                 areaBase = Math.PI * Math.pow(raio, 2);
-                 areaTotal = areaLateral + areaBase;}
-                else{  areaLateral = 2 * Math.PI * raio * h;
+             
+                else{areaLateral = Math.PI * raio * geratriz;;
                  areaBase = Math.PI * Math.pow(raio, 2);
                  areaTotal = areaLateral + areaBase;}
                 
